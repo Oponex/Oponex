@@ -1,0 +1,1023 @@
+/* ===================================
+   PORSCHE 911 WEBSITE - PREMIUM DESIGN
+   =================================== */
+
+/* CSS Variables - Design System */
+:root {
+    /* Colors - More dramatic and emotional */
+    --color-bg-primary: #000000;
+    --color-bg-secondary: #0d0d0d;
+    --color-bg-tertiary: #1a1a1a;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #b8b8b8;
+    --color-text-tertiary: #808080;
+    --color-accent-red: #ff0000;
+    --color-accent-silver: #d4d4d4;
+    --color-accent-gray: #2a2a2a;
+
+    /* Spacing - 8px system */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+    --space-4xl: 8rem;
+
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-display: 'Helvetica Neue', 'Arial', sans-serif;
+
+    /* Border Radius */
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.4s ease;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 40px rgba(220, 10, 40, 0.15);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-lg);
+    }
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: var(--space-lg) 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.1);
+    transition: all var(--transition-base);
+}
+
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--color-text-primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-xl);
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-accent-red);
+    transition: width var(--transition-base);
+}
+
+.nav-links a:hover {
+    color: var(--color-text-primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        gap: var(--space-lg);
+    }
+
+    .nav-links a {
+        font-size: 0.875rem;
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4xl) var(--space-xl);
+    overflow: hidden;
+    background: #000000;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 30% 40%, rgba(255, 0, 0, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: clamp(8rem, 20vw, 16rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    margin-bottom: var(--space-lg);
+    background: linear-gradient(180deg, #ffffff 0%, #666666 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 1s ease-out;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2xl);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.hero-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.car-silhouette {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://a.storyblok.com/f/322327/5760x2850/bfd3b7659e/cz26w10ox0002-911-turbo-s-rear-desktop.jpg/m/2560x1440/smart/filters:format(avif)?dpl=dpl_H8NsfKgAzDVwzxAg3jaVYta9BHaC');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    filter: brightness(0.7) contrast(1.3) saturate(1.2);
+}
+
+.car-silhouette::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 50%;
+    background: radial-gradient(ellipse at center, rgba(255, 0, 0, 0.25) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text-tertiary);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--color-text-tertiary) 0%, transparent 100%);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.02em;
+}
+
+.btn-primary {
+    background: var(--color-accent-red);
+    color: var(--color-text-primary);
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.4s both;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+}
+
+.btn-primary:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 0 70px rgba(255, 0, 0, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Section Headers */
+.section-header {
+    margin-bottom: var(--space-3xl);
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent-red);
+    margin-bottom: var(--space-sm);
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+/* Heritage Section */
+.heritage {
+    padding: var(--space-4xl) 0;
+    background: var(--color-bg-primary);
+    position: relative;
+}
+
+.heritage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 0, 0, 0.3) 50%, transparent 100%);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 0, 0, 0.5) 20%, rgba(255, 0, 0, 0.5) 80%, transparent 100%);
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+.timeline-year {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text-tertiary);
+    text-align: right;
+    grid-column: 1;
+}
+
+.timeline-item:nth-child(even) .timeline-year {
+    text-align: left;
+    grid-column: 3;
+}
+
+.timeline-item::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: var(--color-accent-red);
+    border-radius: 50%;
+    grid-column: 2;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 0, 0, 0.4);
+    border: 3px solid #000;
+}
+
+.timeline-content {
+    grid-column: 3;
+    padding: var(--space-xl);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    transition: all var(--transition-base);
+}
+
+.timeline-content:hover {
+    border-color: rgba(255, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 0, 0, 0.15);
+    transform: translateX(10px);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    grid-column: 1;
+}
+
+.timeline-item:nth-child(even) .timeline-content:hover {
+    transform: translateX(-10px);
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+}
+
+.timeline-content p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+@media (max-width: 968px) {
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-item {
+        grid-template-columns: auto 1fr;
+        gap: var(--space-lg);
+    }
+
+    .timeline-year {
+        grid-column: 1 !important;
+        text-align: left !important;
+        font-size: 2rem;
+    }
+
+    .timeline-item::after {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .timeline-content {
+        grid-column: 2 !important;
+        grid-row: 1;
+    }
+}
+
+/* Performance Section */
+.performance {
+    padding: var(--space-4xl) 0;
+    background: var(--color-bg-secondary);
+    position: relative;
+}
+
+.performance::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 0, 0, 0.3) 50%, transparent 100%);
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+}
+
+.spec-card {
+    padding: var(--space-xl);
+    background: var(--color-bg-primary);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all var(--transition-base);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.spec-card:nth-child(1) { animation-delay: 0.1s; }
+.spec-card:nth-child(2) { animation-delay: 0.2s; }
+.spec-card:nth-child(3) { animation-delay: 0.3s; }
+.spec-card:nth-child(4) { animation-delay: 0.4s; }
+
+.spec-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.2);
+}
+
+.spec-icon {
+    color: var(--color-accent-red);
+    margin-bottom: var(--space-lg);
+}
+
+.spec-value {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+    background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.spec-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.spec-description {
+    font-size: 0.9375rem;
+    color: var(--color-text-tertiary);
+    line-height: 1.6;
+}
+
+/* Design Philosophy Section */
+.design-philosophy {
+    padding: var(--space-4xl) 0;
+    background: var(--color-bg-primary);
+}
+
+.design-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+}
+
+.design-text {
+    max-width: 600px;
+}
+
+.design-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2xl);
+}
+
+.design-features {
+    display: grid;
+    gap: var(--space-xl);
+}
+
+.feature-item {
+    padding: var(--space-lg);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-accent-red);
+}
+
+.feature-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+}
+
+.feature-item p {
+    color: var(--color-text-tertiary);
+    line-height: 1.6;
+}
+
+.design-visual {
+    position: relative;
+}
+
+.design-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+}
+
+.design-detail {
+    aspect-ratio: 4/3;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.design-detail::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(220, 10, 40, 0.1) 0%, transparent 70%);
+}
+
+.detail-1 {
+    background-image: url('https://media.autoexpress.co.uk/image/private/s--moDEEMmp--/f_auto,t_content-image-full-mobile@1/v1742554955/autoexpress/2025/03/Porsche%20911%20Carrera%204%20GTS-9.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.detail-1::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    right: 10%;
+    height: 50%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    filter: blur(30px);
+}
+
+.detail-2 {
+    grid-column: 1 / -1;
+    background-image: url('https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/05/porsche-911-gt3-manthey-close-up.jpg?q=49&fit=crop&w=825&dpr=2');
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 968px) {
+    .design-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-3xl);
+    }
+}
+
+/* Models Section */
+.models {
+    padding: var(--space-4xl) 0;
+    background: var(--color-bg-secondary);
+}
+
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-xl);
+}
+
+.model-card {
+    background: var(--color-bg-primary);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all var(--transition-base);
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.model-card:nth-child(1) { animation-delay: 0.1s; }
+.model-card:nth-child(2) { animation-delay: 0.2s; }
+.model-card:nth-child(3) { animation-delay: 0.3s; }
+
+.model-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(255, 0, 0, 0.5);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 0, 0, 0.3);
+}
+
+.model-card.featured {
+    border-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 8px 40px rgba(255, 0, 0, 0.25);
+}
+
+.model-badge {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    background: var(--color-accent-red);
+    color: var(--color-text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+.model-image {
+    height: 300px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    position: relative;
+}
+
+.model-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(220, 10, 40, 0.1) 0%, transparent 70%);
+}
+
+.model-image::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 40%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    filter: blur(40px);
+}
+
+/* Model-specific images */
+.model-image.carrera {
+    background-image: url('https://autogoda.ru/archive/Porsche-911-Hybrid-2024-3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.model-image.turbo {
+    background-image: url('323145_6000x3996.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.model-image.gt3 {
+    background-image: url('https://a.storyblok.com/f/322327/1940x1320/8950f619b2/cz25w18ox0011-911-gt3-weissach-package-front.jpg/m/990x673/smart/filters:format(webp)?dpl=dpl_H8NsfKgAzDVwzxAg3jaVYta9BHaC');
+    background-size: cover;
+    background-position: center;
+}
+
+.model-info {
+    padding: var(--space-xl);
+}
+
+.model-name {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+}
+
+.model-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+}
+
+.model-specs {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-lg);
+}
+
+/* Gallery Section */
+.gallery {
+    padding: var(--space-4xl) 0;
+    background: var(--color-bg-primary);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-lg);
+}
+
+.gallery-item {
+    aspect-ratio: 4/3;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.gallery-item.large {
+    grid-column: span 7;
+    aspect-ratio: 16/9;
+}
+
+.gallery-item:not(.large) {
+    grid-column: span 3;
+}
+
+.gallery-item:nth-child(2) {
+    grid-column: span 5;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(220, 10, 40, 0.05) 0%, transparent 70%);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+}
+
+/* Gallery images */
+.gallery-item:nth-child(1) {
+    background-image: url('https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1290x726/dam/pnr/2020/Scene-and-Passion/Richard-Pardon/gallery/b-Porsches-Thunderhill.jpg/jcr:content/b-Porsches%20Thunderhill.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-item:nth-child(2) {
+    background-image: url('https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_690x388/dam/pnr/2020/Scene-and-Passion/-GetCreativeWithPorsche/1-Photography-Pardon/b-RP---GT4-Drift.jpeg/jcr:content/b-RP%20-%20GT4%20Drift.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-item:nth-child(3) {
+    background-image: url('https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_690x388/dam/pnr/2020/Scene-and-Passion/-GetCreativeWithPorsche/1-Photography-Pardon/b-RP---Porsche-935.jpeg/jcr:content/b-RP%20-%20Porsche%20935.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-item:nth-child(4) {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUDyhfm5hpTUSJgBMxujSIvBzAFdQnQS8bMQ&s');
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-item:nth-child(5) {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY37qwH9U0R4sMvm4oK7xaWhX8jwf4bs0oWA&s');
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 968px) {
+    .gallery-item,
+    .gallery-item.large,
+    .gallery-item:nth-child(2) {
+        grid-column: span 12 !important;
+    }
+}
+
+/* Footer */
+.footer {
+    padding: var(--space-4xl) 0 var(--space-xl);
+    background: var(--color-bg-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: var(--space-4xl);
+    margin-bottom: var(--space-3xl);
+}
+
+.footer-brand h3 {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+}
+
+.footer-brand p {
+    color: var(--color-text-secondary);
+    max-width: 400px;
+    line-height: 1.7;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.footer-column h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: var(--space-sm);
+}
+
+.footer-column a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: color var(--transition-fast);
+}
+
+.footer-column a:hover {
+    color: var(--color-text-primary);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+}
+
+.footer-legal {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.footer-legal a {
+    color: var(--color-text-tertiary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-legal a:hover {
+    color: var(--color-text-primary);
+}
+
+@media (max-width: 968px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-3xl);
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-lg);
+        text-align: center;
+    }
+
+    .footer-legal {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+}
+
+/* Utility Classes */
+.fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
